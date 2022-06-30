@@ -19,7 +19,6 @@ nav {
 
 .navbar__item {
     margin-right: 50px;
-    cursor: pointer;
     color: lightgray;
     font-weight: 400;
 }
@@ -32,16 +31,72 @@ nav {
 
 .slider__items {
     display: flex;
-    width: 300vw;
-    transition: all 1s ease-in-out;
-}
-
-.slider__item {
-    -webkit-box-shadow: 0 0 13px 2px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 0 13px 2px rgba(0, 0, 0, 0.3);
 }
 
 .slider__img {
     width: 100vw;
     height: 100vh;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-size: 50px;
+    padding: 15px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.1s;
+    user-select: none;
+}
+
+.prev:hover, .next:hover {
+    color: #00a7ff;
+}
+
+.next {
+    right: 0;
+}
+
+.dot-box {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: 20px;
+    cursor: pointer;
+}
+
+.dot {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.active, .dot:hover {
+    border-color: #00a7ff;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: 0.8}
+    to {opacity: 1}
+}
+
+img {
+    transform: scale(1.5, 1.5);
+    animation-name: zoom;
+    animation-duration: 40s;
+}
+
+@keyframes zoom {
+    from {transform: scale(1, 1);}
+    to {transform: scale(1.5, 1.5);}
 }

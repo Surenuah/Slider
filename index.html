@@ -12,21 +12,35 @@
         <h3 class="navbar__item">Emily Dewitt</h3>
         <h3 class="navbar__item">Madison Paige</h3>
         <h3 class="navbar__item">Michael De Santa</h3>
+        <h3 class="navbar__item">Ellie Williams</h3>
     </div>
 </nav>
 
 <div class="slider">
     <div class="slider__items">
-        <div class="slider__item">
+        <div class="slider__item fade">
             <img src="./assets/emily.png" class="slider__img" alt="">
         </div>
-        <div class="slider__item">
+        <div class="slider__item fade">
             <img src="./assets/madison.png" class="slider__img" alt="">
         </div>
-        <div class="slider__item">
+        <div class="slider__item fade">
             <img src="./assets/michael.png" class="slider__img" alt="">
         </div>
+        <div class="slider__item fade">
+            <img src="./assets/elli.jpg" class="slider__img" alt="">
+        </div>
     </div>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+<div class="dot-box" style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
 </div>
 
 <script src="app.js"></script>
