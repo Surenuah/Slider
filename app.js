@@ -1,5 +1,6 @@
 const sliderItem = document.querySelectorAll(".slider__item");
 const dot = document.querySelectorAll(".dot");
+const navbarItems = document.querySelectorAll(".navbar__item");
 let counter = 1;
 slide(counter);
 
@@ -33,6 +34,7 @@ function slide(n) {
 
     for(let i = 0; i < dot.length; i++) {
         dot[i].className = dot[i].className.replace(' active', '');
+        navbarItems[i].className = navbarItems[i].className.replace(' active', '');
     }
 
     if(n > sliderItem.length) {
@@ -45,4 +47,5 @@ function slide(n) {
 
     sliderItem[counter - 1].style.display = "block";
     dot[counter - 1].className += " active";
+    navbarItems[counter - 1].className += " active";
 }
