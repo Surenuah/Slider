@@ -1,8 +1,20 @@
 const sliderItem = document.querySelectorAll(".slider__item");
 const dot = document.querySelectorAll(".dot");
 const navbarItems = document.querySelectorAll(".navbar__item");
+const span = document.querySelectorAll("span");
 let counter = 1;
 slide(counter);
+
+const dots = [];
+
+dots.forEach(() => {
+    sliderItem.forEach(() => {
+        dot.append("<span rel='"+(this).index()+"'></span>");
+    });
+    span.forEach((item) => {
+        item.classList.add("active");
+    });
+});
 
 let timer = setInterval(autoSlide, 8000);
 function autoSlide() {
