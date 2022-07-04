@@ -6,8 +6,6 @@ const navbarItems = document.querySelectorAll(".navbar__item");
 const dotBox = document.createElement("div");
 dotBox.classList.add("dot-box");
 
-let activeDotNum = 0;
-
 sliderItem.forEach((item, index) => {
     const slideSpan = document.createElement("span");
     slideSpan.classList.add("dot");
