@@ -1,22 +1,38 @@
 const sliderItem = document.querySelectorAll(".slider__item");
-const dot = document.querySelectorAll(".dot");
+const sliderItems = document.querySelector(".slider__items");
 const navbarItems = document.querySelectorAll(".navbar__item");
-const span = document.querySelectorAll("span");
+
+// creating dots and dot-box container
+const dotBox = document.createElement("div");
+dotBox.classList.add("dot-box");
+
+let activeDotNum = 0;
+
+sliderItem.forEach((item, index) => {
+    const slideSpan = document.createElement("span");
+    slideSpan.classList.add("dot");
+    dotBox.appendChild(slideSpan);
+
+
+    // changing current slide
+    slideSpan.addEventListener("click", (e) => {
+        plusSlides(1);
+    });
+})
+;
+
+const container = document.querySelector(".container");
+container.appendChild(dotBox);
+
+// functions to slide items
+const dot = document.querySelectorAll(".dot");
+
 let counter = 1;
 slide(counter);
 
-const dots = [];
 
-dots.forEach(() => {
-    sliderItem.forEach(() => {
-        dot.append("<span rel='"+(this).index()+"'></span>");
-    });
-    span.forEach((item) => {
-        item.classList.add("active");
-    });
-});
+let timer = setInterval(autoSlide, 5000);
 
-let timer = setInterval(autoSlide, 8000);
 function autoSlide() {
     counter += 1;
     slide(counter);
@@ -40,20 +56,20 @@ function resetTimer() {
 }
 
 function slide(n) {
-    for(let i = 0; i < sliderItem.length; i++) {
+    for (let i = 0; i < sliderItem.length; i++) {
         sliderItem[i].style.display = "none";
     }
 
-    for(let i = 0; i < dot.length; i++) {
+    for (let i = 0; i < dot.length; i++) {
         dot[i].className = dot[i].className.replace(' active', '');
         navbarItems[i].className = navbarItems[i].className.replace(' active', '');
     }
 
-    if(n > sliderItem.length) {
+    if (n > sliderItem.length) {
         counter = 1;
     }
 
-    if(n < 1) {
+    if (n < 1) {
         counter = sliderItem.length;
     }
 
@@ -61,3 +77,27 @@ function slide(n) {
     dot[counter - 1].className += " active";
     navbarItems[counter - 1].className += " active";
 }
+
+// adding buttons
+const next = document.createElement("button");
+next.innerHTML = "&#10095;";
+next.classList.add("next");
+
+const prev = document.createElement("button");
+prev.innerHTML = "&#10094;";
+prev.classList.add("prev");
+
+const buttons = document.createElement("div");
+buttons.appendChild(prev);
+buttons.appendChild(next);
+
+const buttonsContainer = document.querySelector(".buttons-container");
+buttonsContainer.appendChild(buttons);
+
+next.addEventListener("click", () => {
+    plusSlides(1);
+});
+
+prev.addEventListener("click", () => {
+    plusSlides(-1);
+});

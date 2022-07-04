@@ -29,8 +29,6 @@ nav {
 }
 
 .slider {
-    width: 100vw;
-    height: 100vh;
     overflow: hidden;
 }
 
@@ -53,6 +51,7 @@ nav {
     color: #fff;
     transition: 0.1s;
     user-select: none;
+    background-color: #111111;
 }
 
 .prev:hover, .next:hover {
