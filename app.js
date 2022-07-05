@@ -1,5 +1,5 @@
-const sliderItem = document.querySelectorAll(".slider__item");
 const sliderItems = document.querySelector(".slider__items");
+const sliderItem = document.querySelectorAll(".slider__item");
 const navbarItems = document.querySelectorAll(".navbar__item");
 
 // creating dots and dot-box container
@@ -14,10 +14,11 @@ sliderItem.forEach((item, index) => {
 
     // changing current slide
     slideSpan.addEventListener("click", (e) => {
-        plusSlides(1);
+        sliderItems.style.transform = `translateX(${-100 * index}vw)`;
+        console.log(e.target);
+        console.log(sliderItems);
     });
-})
-;
+});
 
 const container = document.querySelector(".container");
 container.appendChild(dotBox);
